@@ -124,11 +124,9 @@ function App() {
                 }
                 />
 
-                
 
             </Routes>
             <Footer />
-
 
         </div>
         </AppContext.Provider>

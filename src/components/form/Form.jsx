@@ -2,10 +2,22 @@ import { useForm } from "react-hook-form";
 import React from "react";
 import style from "./form.module.css"
 import axios from "axios";
+import emailjs from '@emailjs/browser';
 
 
 export default function Form(){
+    function SendEmail(e){
+        e.preventDefault();
 
+        emailjs.send('service_9by9xxy', e.target, 'template_a5ftbgm', '57OaggYsI74w4VYw7')
+    .then((result) => {
+      alert({result})
+    }, (error) =>{
+       console.log(error.text);
+    });
+
+    }
+    
     const { register, handleSubmit, formState:{errors} } = useForm();
     const onSubmit = (data) => {
         axios.post(`https://637f91cc5b1cc8d6f949a307.mockapi.io/form`,data)
